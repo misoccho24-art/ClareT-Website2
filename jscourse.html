@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn {
+            padding: 15px;
+            background-color: #2b2b2b;
+            color: white;
+            font-family: arial;
+            font-weight: 800;
+            font-size: 10px;
+            border: none;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: rgb(147, 147, 147);
+        }
+
+        .btn:active {
+            margin-top: +1px;
+        }
+
+        .input {
+            padding: 11px;
+            border-style: solid;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input class="input" id="input" type="text" placeholder="Enter">
+    <button onclick="gveri();" class="btn">Veirfy</button>
+
+    <script>
+        function gveri() {
+            let gmail = document.getElementById("input").value;
+
+            if (!gmail.includes("@")) {
+                console.log("Wrong");
+            }
+
+            else if (gmail.length < 6) {
+                console.log("too short");
+            }
+
+            else if (gmail.length > 33) {
+                console.log("too long");
+            }
+
+            else {
+                console.log("Valid");
+            }
+        }
+    </script>
+</body>
+</html>

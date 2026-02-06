@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="inde.css">
+</head>
+<body style="background-color: #2b2b2b;">
+        <nav class="nav">
+    <div class="navdiv">
+
+        <div class="logo"><a href="index.html"><img class="img" src="ClareT (1).png" alt=""></a></div>
+
+        <ul class="nav-links" id="navLinks">
+            <button class="btn">
+                Sign up
+            </button>
+
+            <button class="btn">
+                Log in
+            </button>
+        </ul>
+
+
+        <div class="hamburger" id="hamburger"><img src="account_circle_31dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""></div>
+    </div>
+</nav>
+
+    <div class="sidebar-toggle" id="sidebarToggle">☰</div>
+
+    <nav class="nav-list" id="sidebar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="donate.html" class="active">Donate</a></li>
+    </nav>
+
+<form id="gmail-form">
+        <div class="div-gmail1">    <input class="input-gmail" id="input-gmail" type="text" placeholder="Email address"></div>
+        <div class="div-gmail1">    <p class="msg" id="msg"></p></div>
+        <div class="div-gmail1">    <button class="btn-verify" onclick="gmailVerify();">Next</button></div>
+</form>
+
+
+
+
+<form id="credit-form">
+    <div class="div-gmail4">    <input class="input-style" id="input-style" type="text" placeholder="Credit/Debit card info"></div>
+    <div class="div-gamilp">    <p class="msg1" id="msg1"></p></div>
+    <div class="div-gmail4">    <button class="btn-verify1" onclick="creditVerify();">Next</button></div>
+</form>
+
+
+
+
+<form id="amount-form">
+    <div class="div-gmail6">    <input class="input-style1" id="input-style1" type="text" placeholder="Amount"></div>
+    <div class="div-gamilp1">    <p class="msg2" id="msg2"></p></div>
+    <div class="div-gmail6">    <button class="btn-verify1" onclick="amountVerify();">Donate</button></div>
+</form>
+
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        sidebar.classList.toggle("close");
+    });
+
+  const toggle = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebar");
+
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    navLinks.classList.toggle("close");
+  });
+
+  document.getElementById("gmail-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    gmailverify();
+});
+
+document.getElementById("credit-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    creditVerify();
+});
+
+document.getElementById("amount-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    amountVerify();
+});
+
+
+function gmailVerify() {
+    const gmail = document.getElementById("input-gmail").value;
+    const msg = document.getElementById("msg");
+
+    if (!gmail.includes("@")) {
+        msg.textContent = "Invalid email";
+        msg.style.color = "red";
+    } 
+    else if (gmail.length < 6) {
+        msg.textContent = "Too short";
+        msg.style.color = 'red';
+    } 
+    else if (gmail.length > 27) {
+        msg.textContent = "Too long";
+        msg.style.color = 'red';
+    } 
+    else {
+        msg.textContent = "";
+        document.getElementById("input-style").focus();
+    }
+}
+
+function creditVerify() {
+    const credit = document.getElementById("input-style").value;
+    const msg1 = document.getElementById("msg1");
+
+    if (credit.length < 13) {
+        msg1.textContent = "Too Short";
+        msg1.style.color = 'red';
+    } 
+    else if (credit.length > 19) {
+        msg1.textContent = "Too Long";
+        msg1.style.color = 'red';
+    } 
+    else {
+        msg1.textContent = "";
+        document.getElementById("input-style1").focus();
+    }
+}
+
+function amountVerify() {
+    const amount = Number(document.getElementById("input-style1").value);
+    const msg2 = document.getElementById("msg2");
+
+    if (amount < 1) {
+        msg2.textContent = "Can't accept below $1";
+        msg2.style.color = 'red';
+    } 
+    else if (amount > 1000000) {
+        msg2.textContent = "Can't accept that much!";
+        msg2.style.color = 'red';
+    } 
+    else {
+        window.location.href = "greeting.html";
+    }
+}
+</script>
+</body>
+</html>

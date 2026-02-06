@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="inde.css">
+</head>
+<body style="background-color: #2b2b2b;">
+    <nav class="nav">
+    <div class="navdiv">
+
+        <div class="logo"><a href="index.html"><img class="img" src="ClareT (1).png" alt=""></a></div>
+
+        <ul class="nav-links" id="navLinks">
+            <button class="btn">
+                Sign up
+            </button>
+
+            <button class="btn">
+                Log in
+            </button>
+        </ul>
+
+
+        <div class="hamburger" id="hamburger"><img src="account_circle_31dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""></div>
+    </div>
+</nav>
+
+    <div class="sidebar-toggle" id="sidebarToggle">☰</div>
+
+    <nav class="nav-list" id="sidebar">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    </nav>
+
+
+    <div class="div-1st">
+        <h1 class="f-p">Clare Team Presents.</h1>
+    </div>
+
+    <div class="div-2nd">
+        <p class="p-details">
+        Thinkers of the future.
+        Over 140+ countries are suffering from polluted rivers and air.
+
+        Our mission is to change that.
+        Even a $1 donation can help bring clean water and fresh air back to communities.
+
+        Our goal is to restore rivers and improve air quality worldwide including your country.
+
+        The future depends on what we do today.
+        </p>
+    </div>
+
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        sidebar.classList.toggle("close");
+    });
+
+  const toggle = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebar");
+
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    navLinks.classList.toggle("close");
+  });
+</script>
+
+</body>
+</html>
